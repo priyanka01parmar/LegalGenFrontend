@@ -9,22 +9,16 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegistrationService {
-   apiUrl = 'https://localhost:7204/api/account/register';
+   apiUrl = 'https://localhost:7204/account/register';
 
   constructor(private http: HttpClient) {}
 
-  registerUser(body:any)
-  {
-    const headers = new HttpHeaders({
+  // Register User
+  registerUser(Email: string, Password: string, Designation: string) {
+      const headers = new HttpHeaders({
       'Access-Control-Allow-Origin': '*'
-    });
-      return this.http.post(this.apiUrl ,body,{headers:headers});
+      });
+      return this.http.post(this.apiUrl + "?Email=" + Email +"&Password=" + Password +"&Designation=" + Designation,{headers:headers});
   }
-  getBaseUrl() {  
-    return 'https://localhost:4599/';  
- }  
- getTestMessage(): Observable<string> {  
-    const headers = new HttpHeaders({ 'Content-Type': 'text/plain'});  
-    return this.http.get('api/Home/FetchValues', {responseType: 'text', headers});  
- }  
+
 }

@@ -48,14 +48,16 @@ export class RegistrationComponent implements OnInit {
   signup(): void {
     debugger;
     
+    this.registrationService.registerUser(this.user.Email, this.user.Password, this.user.Designation).subscribe(res => {
+      debugger;
+      console.log(res);
+      })
+
     // // if(!this.signupForm.valid){
     // //   return;
     // // }
     // else{
-      this.registrationService.registerUser(this.user).subscribe(res => {
-        debugger;
-        console.log(res);
-        })
+      
     //}
     // if (this.signupForm.valid) {
     //   // Perform the signup logic here
