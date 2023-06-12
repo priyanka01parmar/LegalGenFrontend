@@ -6,18 +6,21 @@
     <img src="assets\logo.png"  alt="Logo"/>
   </div>
       <h1>Welcome Back</h1>
-      <form>
+      <form [formGroup]="loginForm">
         <div class="input-container">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" ngModel="email">
+          <input type="email" id="email" name="email" placeholder="Enter your email" formControlName="email" >
+          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error-message">
+            <p *ngIf="email.errors?.['required']">Email is required</p>
+            <p *ngIf="email.errors?.['email']">Invalid email</p>
         </div>
         <div class="input-container">
           <label for="password">Password</label>
           <div class="password-input">
-            <input type="password" id="password" name="password" placeholder="Enter your password" [type]="passwordFieldType" ngModel="password">
-            <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+            <input type="password" id="password" name="password" placeholder="Enter your password"  formControlName="pwd">
+            <!-- <button type="button" class="toggle-password">
               <i class="fa" [ngClass]="{'fa-eye': passwordFieldType === 'password', 'fa-eye-slash': passwordFieldType === 'text'}"></i>
-            </button>
+            </button> -->
           </div>
         </div>
         
@@ -38,6 +41,7 @@
             <img src="assets/google-logo.png" alt="Google Logo" class="google-logo">
             Continue with Google
           </button>
+        </div>
         </div>
       </form>
     </div>

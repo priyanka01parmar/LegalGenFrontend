@@ -53,23 +53,23 @@ export class RegistrationComponent implements OnInit {
       console.log(res);
       })
 
-    // // if(!this.signupForm.valid){
-    // //   return;
-    // // }
-    // else{
+    if(!this.signupForm.valid){
+      return;
+    }
+    else{
       
-    //}
-    // if (this.signupForm.valid) {
-    //   // Perform the signup logic here
-    //   console.log('Registration successful!');
+    }
+    if (this.signupForm.valid) {
+      // Perform the signup logic here
+      console.log('Registration successful!');
      
-    // } 
-    // else if (this.signupForm.valid == null) {
-    //   console.log('Please enter EmailId & Password');
-    // }
+    } 
+    else if (this.signupForm.valid == null) {
+      console.log('Please enter EmailId & Password');
+    }
 
-    // else{
-    //   console.log('Invalid form');
-    // }
+    else{
+      console.log('Invalid form');
+    }
   }
 }
